@@ -1,7 +1,150 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 author_profile: true
+classes: wide
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/header-bg.jpg
+  actions:
+    - label: "Empezar a Aprender"
+      url: "/categories/"
+excerpt: "Descubre las mejores prácticas y tutoriales sobre DevOps, Cloud y Automatización. Especializado en Azure y tecnologías Microsoft."
+intro: 
+  - excerpt: 'Recursos actualizados y prácticos para profesionales DevOps y Cloud'
+
+feature_row:
+  - image_path: /assets/images/features/azure-devops.jpg
+    alt: "Azure DevOps"
+    title: "Azure DevOps"
+    excerpt: "Guías y tutoriales sobre Azure DevOps, pipelines, y automatización."
+    url: "/tags/#azure-devops"
+    btn_label: "Leer más"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/features/terraform.jpg
+    alt: "Terraform"
+    title: "Infrastructure as Code"
+    excerpt: "Aprende a gestionar tu infraestructura con Terraform y otros IaC tools."
+    url: "/tags/#terraform"
+    btn_label: "Leer más"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/features/kubernetes.jpg
+    alt: "Kubernetes"
+    title: "Kubernetes y Contenedores"
+    excerpt: "Todo sobre orquestación de contenedores y Kubernetes en Azure."
+    url: "/tags/#kubernetes"
+    btn_label: "Leer más"
+    btn_class: "btn--primary"
+
+latest_posts:
+  - excerpt: 'Últimos artículos y tutoriales'
 ---
+
+{% include feature_row id="intro" type="center" %}
+
+<div class="hero">
+  <h1>TheCloudvops Blog</h1>
+  <p>Tu fuente de conocimiento para DevOps y Cloud Computing</p>
+  <div class="hero-search">
+    {% include search/search_form.html %}
+  </div>
+</div>
+
+<div class="featured-topics">
+  <h2>Temas Destacados</h2>
+  {% include feature_row %}
+</div>
+
+<div class="latest-articles">
+  <h2>Últimos Artículos</h2>
+  <div class="grid__wrapper">
+    {% for post in site.posts limit:6 %}
+      {% include archive-single.html type="grid" %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="categories-section">
+  <h2>Explora por Categoría</h2>
+  <div class="category-grid">
+    {% for category in site.categories %}
+      <a href="/categories/#{{ category[0] | slugify }}" class="category-card">
+        <h3>{{ category[0] }}</h3>
+        <span class="count">{{ category[1].size }} artículos</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.hero-search {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.featured-topics,
+.latest-articles,
+.categories-section {
+  margin: 4rem 0;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.category-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--text-color);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .count {
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>

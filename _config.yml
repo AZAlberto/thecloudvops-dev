@@ -45,7 +45,9 @@ remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/Madrid
+future: false  # No mostrar posts con fecha futura
+show_drafts: false  # No mostrar drafts en producción
 
 include:
   - _pages

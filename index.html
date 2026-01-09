@@ -32,17 +32,14 @@ excerpt: "Descubre las mejores prácticas y tutoriales sobre DevOps, Cloud y Aut
 
 <section class="featured-topics-section">
   <div class="container">
-    <h2 class="section-title">Temas Destacados</h2>
+    <h2 class="section-title">Categorías</h2>
     <div class="topics-grid">
-      {% assign categories = site.categories | sort %}
-      {% for category in categories limit:6 %}
+      {% assign sorted_tags = site.tags | sort %}
+      {% for tag in sorted_tags limit:6 %}
         <div class="topic-card">
-          <div class="topic-icon">
-            <i class="fas fa-{{ category[0] | downcase | replace: ' ', '-' }}"></i>
-          </div>
-          <h3>{{ category[0] }}</h3>
-          <p class="topic-count">{{ category[1].size }} artículos</p>
-          <a href="/categories/#{{ category[0] | slugify }}" class="topic-link">Explorar →</a>
+          <h3>{{ tag[0] }}</h3>
+          <p class="topic-count">{{ tag[1].size }} artículos</p>
+          <a href="/blog/" class="topic-link">Explorar →</a>
         </div>
       {% endfor %}
     </div>
@@ -554,58 +551,6 @@ excerpt: "Descubre las mejores prácticas y tutoriales sobre DevOps, Cloud y Aut
   }
 
   .section-title {
-    font-size: 2rem;
-  }
-}
-
-.hero-search {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.featured-topics,
-.latest-articles,
-.categories-section {
-  margin: 4rem 0;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.category-card {
-  background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  text-decoration: none;
-  color: var(--text-color);
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-  }
-
-  h3 {
-    margin: 0 0 0.5rem 0;
-  }
-
-  .count {
-    color: var(--text-light);
-    font-size: 0.9rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    padding: 2rem 1rem;
-  }
-
-  .hero h1 {
     font-size: 2rem;
   }
 }

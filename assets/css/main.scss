@@ -329,3 +329,105 @@ search: false
     max-width: 100%;
   }
 }
+
+// Overrides for pages (not posts) to match home colors
+.page__content {
+  color: #333;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.page__content h5,
+.page__content h6 {
+  color: #333;
+}
+
+.page__content a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.page__content a:hover {
+  color: #2980b9;
+}
+
+.page__content ul,
+.page__content ol {
+  color: #333;
+}
+
+.page__content blockquote {
+  border-left: 4px solid #3498db;
+  background: #f8f9fa;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.archive {
+  background: #f8f9fa;
+}
+
+.archive__item {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.archive__item-title a {
+  color: #333;
+}
+
+.archive__item-title a:hover {
+  color: #3498db;
+}
+
+.archive__item-excerpt {
+  color: #666;
+}
+
+.category__title {
+  color: #333;
+}
+
+.taxonomy__section {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.taxonomy__section h2 {
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.taxonomy__section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.taxonomy__section li {
+  margin-bottom: 0.5rem;
+}
+
+.taxonomy__section a {
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.taxonomy__section a:hover {
+  background: #e3f2fd;
+  color: #1976d2;
+}

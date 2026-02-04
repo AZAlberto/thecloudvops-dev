@@ -49,6 +49,7 @@ paginate_path: /page:num/
 timezone: Europe/Madrid
 future: false  # No mostrar posts con fecha futura
 show_drafts: false  # No mostrar drafts en producción
+sidebar: false
 
 include:
   - _pages

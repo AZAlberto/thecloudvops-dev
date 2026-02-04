@@ -1,40 +1,77 @@
 ---
 layout: default
+classes: wide
 ---
 
 {% assign post = page %}
 {% assign related_posts = site.posts | where_exp: "post", "post.tags contains page.tags.first" | where_exp: "post", "post.url != page.url" | limit: 3 %}
 
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    
-    <!-- Breadcrumbs -->
-    <nav class="breadcrumbs" aria-label="breadcrumb">
-      <ol>
-        <li><a href="{{ site.baseurl }}/">Home</a></li>
-        {% if page.categories %}
-          <li><a href="{{ site.baseurl }}/categories/#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a></li>
-        {% endif %}
-        <li>{{ page.title }}</li>
-      </ol>
-    </nav>
+<div class="post-container">
+  {% if page.header.image %}
+    <div class="post-header-image" style="background-image: url('{{ page.header.image | relative_url }}');">
+      <div class="post-header-overlay">
+        <div class="post-header-content">
+          <h1 class="post-title">{{ page.title }}</h1>
+          
+          <!-- Breadcrumbs -->
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol>
+              <li><a href="{{ site.baseurl }}/">Home</a></li>
+              {% if page.categories %}
+                <li><a href="{{ site.baseurl }}/categories/#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a></li>
+              {% endif %}
+              <li>{{ page.title }}</li>
+            </ol>
+          </nav>
 
-    <!-- Metadatos del post -->
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-      {% if page.author %}
-        • <span class="post-author">{{ page.author }}</span>
-      {% endif %}
-      {% if page.tags.size > 0 %}
-        <div class="post-tags">
-          {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">#{{ tag }}</a>
-          {% endfor %}
+          <!-- Metadatos del post -->
+          <div class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+            {% if page.author %}
+              • <span class="post-author">{{ page.author }}</span>
+            {% endif %}
+            {% if page.tags.size > 0 %}
+              <div class="post-tags">
+                {% for tag in page.tags %}
+                  <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">#{{ tag }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
         </div>
-      {% endif %}
+      </div>
     </div>
-  </header>
+  {% else %}
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+        <ol>
+          <li><a href="{{ site.baseurl }}/">Home</a></li>
+          {% if page.categories %}
+            <li><a href="{{ site.baseurl }}/categories/#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a></li>
+          {% endif %}
+          <li>{{ page.title }}</li>
+        </ol>
+      </nav>
+
+      <!-- Metadatos del post -->
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.author %}
+          • <span class="post-author">{{ page.author }}</span>
+        {% endif %}
+        {% if page.tags.size > 0 %}
+          <div class="post-tags">
+            {% for tag in page.tags %}
+              <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </header>
+  {% endif %}
 
   <div class="post-content">
     {{ content }}
@@ -42,20 +79,47 @@ layout: default
 
   <!-- Sección de artículos relacionados -->
   {% if related_posts.size > 0 %}
-    <div class="related-posts">
-      <h2>Artículos Relacionados</h2>
-      <div class="related-posts-grid">
-        {% for related_post in related_posts %}
-          <article class="related-post">
-            {% if related_post.header.image %}
-              <img src="{{ related_post.header.image | relative_url }}" alt="{{ related_post.title }}" class="related-post-image">
-            {% endif %}
-            <h3><a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a></h3>
-            <p>{{ related_post.excerpt | strip_html | truncatewords: 30 }}</p>
-          </article>
-        {% endfor %}
+    <section class="related-posts-section">
+      <div class="container">
+        <h2 class="section-title">Artículos Relacionados</h2>
+        <div class="related-posts-grid">
+          {% for related_post in related_posts %}
+            <article class="article-card">
+              {% if related_post.header.image %}
+                <div class="article-image">
+                  <img src="{{ related_post.header.image | relative_url }}" alt="{{ related_post.title }}">
+                  <div class="article-category">{{ related_post.categories[0] }}</div>
+                </div>
+              {% endif %}
+              <div class="article-content">
+                <div class="article-meta">
+                  <time datetime="{{ related_post.date | date: '%Y-%m-%d' }}" class="article-date">
+                    {{ related_post.date | date: "%d %b %Y" }}
+                  </time>
+                  <span class="article-read-time">5 min lectura</span>
+                </div>
+                <h3 class="article-title">
+                  <a href="{{ site.baseurl }}{{ related_post.url }}">{{ related_post.title }}</a>
+                </h3>
+                <p class="article-excerpt">
+                  {% if related_post.excerpt %}
+                    {{ related_post.excerpt | strip_html | truncatewords: 20 }}
+                  {% else %}
+                    {{ related_post.content | strip_html | truncatewords: 20 }}
+                  {% endif %}
+                </p>
+                <div class="article-tags">
+                  {% for tag in related_post.tags limit:3 %}
+                    <span class="tag">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+                <a href="{{ site.baseurl }}{{ related_post.url }}" class="read-more">Leer artículo →</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    </section>
   {% endif %}
 
   <!-- Navegación entre posts -->
@@ -80,10 +144,52 @@ layout: default
       {% endif %}
     </div>
   </nav>
-</article>
+</div>
 
 <!-- Estilos para la nueva estructura -->
 <style>
+  .post-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .post-header-image {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .post-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+  .post-header-content {
+    max-width: 800px;
+    padding: 2rem;
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
   .breadcrumbs {
     margin-bottom: 1rem;
     font-size: 0.9em;
@@ -95,6 +201,7 @@ layout: default
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   
   .breadcrumbs li {
@@ -104,12 +211,22 @@ layout: default
   .breadcrumbs li:not(:last-child)::after {
     content: ">";
     margin: 0 0.5rem;
-    color: #666;
+    color: rgba(255,255,255,0.7);
   }
-  
+
+  .breadcrumbs a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    color: white;
+  }
+
   .post-meta {
     margin: 1rem 0;
-    color: #666;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1em;
   }
   
   .post-tags {
@@ -118,65 +235,237 @@ layout: default
   
   .post-tag {
     display: inline-block;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.6rem;
     margin: 0.2rem;
-    background: #f0f0f0;
-    border-radius: 3px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
     font-size: 0.8em;
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .post-tag:hover {
+    background: rgba(255,255,255,0.3);
+  }
+
+  .post-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .post-header .post-title {
+    color: #333;
+    text-shadow: none;
+  }
+
+  .post-header .breadcrumbs ol {
+    justify-content: center;
+  }
+
+  .post-header .post-meta {
+    color: #666;
+  }
+
+  .post-header .post-tag {
+    background: #f0f0f0;
+    color: #333;
+    border: none;
+  }
+
+  .post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  .related-posts-section {
+    margin-top: 4rem;
+    padding: 3rem 0;
+    background: #f8f9fa;
+  }
+
+  .related-posts-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .related-posts-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  .related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .article-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  }
+
+  .article-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .article-card:hover .article-image img {
+    transform: scale(1.05);
+  }
+
+  .article-category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .article-content {
+    padding: 1.5rem;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  .article-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-title a {
     color: #333;
     text-decoration: none;
   }
-  
-  .related-posts {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
+
+  .article-title a:hover {
+    color: #3498db;
   }
-  
-  .related-posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
+
+  .article-excerpt {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
   }
-  
-  .related-post {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 5px;
-  }
-  
-  .related-post-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 3px;
+
+  .article-tags {
     margin-bottom: 1rem;
   }
-  
+
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin: 0.2rem;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 15px;
+    font-size: 0.8em;
+  }
+
+  .read-more {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
+  .read-more:hover {
+    color: #2980b9;
+  }
+
   .post-navigation {
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid #eee;
   }
-  
+
   .nav-links {
     display: flex;
     justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
   }
-  
+
   .nav-previous,
   .nav-next {
     max-width: 45%;
   }
-  
+
   .nav-subtitle {
     display: block;
     font-size: 0.8em;
     color: #666;
   }
-  
+
   .nav-title {
     font-weight: bold;
+    color: #333;
+  }
+
+  .nav-title:hover {
+    color: #3498db;
+  }
+
+  @media (max-width: 768px) {
+    .post-container {
+      padding: 1rem;
+    }
+
+    .post-title {
+      font-size: 2rem;
+    }
+
+    .post-header-image {
+      height: 300px;
+    }
+
+    .related-posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-previous,
+    .nav-next {
+      max-width: 100%;
+    }
   }
 </style>

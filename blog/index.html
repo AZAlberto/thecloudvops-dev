@@ -42,7 +42,7 @@ classes: wide
       <ul class="recent-posts">
         {% for post in site.posts limit:5 %}
           <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             <span class="date">{{ post.date | date: "%d %b" }}</span>
           </li>
         {% endfor %}
@@ -87,7 +87,7 @@ classes: wide
               {% endif %}
             </div>
             <h2 class="blog-card-title">
-              <a href="{{ post.url }}">{{ post.title }}</a>
+              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </h2>
             <p class="blog-card-excerpt">
               {% if post.excerpt %}
@@ -96,7 +96,7 @@ classes: wide
                 {{ post.content | strip_html | truncatewords: 25 }}
               {% endif %}
             </p>
-            <a href="{{ post.url }}" class="read-more-link">Leer más →</a>
+            <a href="{{ site.baseurl }}{{ post.url }}" class="read-more-link">Leer más →</a>
           </div>
         </article>
       {% endfor %}

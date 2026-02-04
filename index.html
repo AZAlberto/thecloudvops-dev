@@ -70,7 +70,7 @@ excerpt: "Descubre las mejores prácticas y tutoriales sobre DevOps, Cloud y Aut
               <span class="article-read-time">5 min lectura</span>
             </div>
             <h3 class="article-title">
-              <a href="{{ post.url }}">{{ post.title }}</a>
+              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </h3>
             <p class="article-excerpt">
               {% if post.excerpt %}
@@ -84,7 +84,7 @@ excerpt: "Descubre las mejores prácticas y tutoriales sobre DevOps, Cloud y Aut
                 <span class="tag">{{ tag }}</span>
               {% endfor %}
             </div>
-            <a href="{{ post.url }}" class="read-more">Leer artículo →</a>
+            <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Leer artículo →</a>
           </div>
         </article>
       {% endfor %}

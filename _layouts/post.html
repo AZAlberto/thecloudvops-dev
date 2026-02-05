@@ -1,52 +1,126 @@
 ---
 layout: default
-classes: wide
 ---
 
-{% assign post = page %}
-{% assign related_posts = site.posts | where_exp: "post", "post.tags contains page.tags.first" | where_exp: "post", "post.url != page.url" | limit: 3 %}
-
-<div class="post-container">
-  {% if page.header.image %}
-    <div class="post-header-image" style="background-image: url('{{ page.header.image | relative_url }}');">
-      <div class="post-header-overlay">
-        <div class="post-header-content">
-          <h1 class="post-title">{{ page.title }}</h1>
-          
-          <!-- Breadcrumbs -->
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol>
-              <li><a href="{{ site.baseurl }}/">Home</a></li>
-              {% if page.categories %}
-                <li><a href="{{ site.baseurl }}/categories/#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a></li>
-              {% endif %}
-              <li>{{ page.title }}</li>
-            </ol>
-          </nav>
-
-          <!-- Metadatos del post -->
-          <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-            {% if page.author %}
-              • <span class="post-author">{{ page.author }}</span>
-            {% endif %}
-            {% if page.tags.size > 0 %}
-              <div class="post-tags">
-                {% for tag in page.tags %}
-                  <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">#{{ tag }}</a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
+<article class="post">
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      {% if page.author %}
+        • <span class="author">{{ page.author }}</span>
+      {% endif %}
+      {% if page.categories %}
+        • <span class="categories">
+          {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+      {% endif %}
     </div>
-  {% else %}
-    <header class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>
-      
-      <!-- Breadcrumbs -->
-      <nav class="breadcrumbs" aria-label="breadcrumb">
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+  <footer class="post-footer">
+    <div class="tags">
+      <strong>Tags:</strong>
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </footer>
+  {% endif %}
+</article>
+
+<style>
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-header h1 {
+  color: #24292e;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: #586069;
+  font-size: 0.9rem;
+}
+
+.post-meta a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+.post-content {
+  line-height: 1.6;
+  color: #24292e;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: #24292e;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content code {
+  background-color: #f6f8fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.post-content pre {
+  background-color: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e1e4e8;
+}
+
+.tags {
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f1f8ff;
+  color: #0366d6;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.tag:hover {
+  background-color: #c8e1ff;
+}
+</style>
         <ol>
           <li><a href="{{ site.baseurl }}/">Home</a></li>
           {% if page.categories %}

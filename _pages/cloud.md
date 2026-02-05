@@ -1,13 +1,7 @@
 ---
 title: "Cloud"
-layout: category
+layout: default
 permalink: /cloud/
-taxonomy: cloud
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
-  overlay_image: /assets/images/layout/cloud-header.jpg
-excerpt: "Recursos y guías sobre Cloud Computing"
 ---
 
 ## Plataformas Cloud

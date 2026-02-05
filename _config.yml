@@ -41,7 +41,7 @@ search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.16.0"
+theme: jekyll-theme-cayman
 # Outputting
 permalink: /blog/:title/
 paginate: 5 # amount of posts to show

@@ -1,555 +1,316 @@
 ---
 layout: default
-author_profile: false
-classes: wide
-header:
-  image: /assets/images/bio-photo.jpg
-excerpt: "Descubre las mejores prácticas y tutoriales sobre DevOps, Cloud y Automatización. Especializado en Azure y tecnologías Microsoft."
+title: TheCloudvops - DevOps, Cloud y Automatización
 ---
 
-<section class="hero-section">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1 class="hero-title">TheCloudvops</h1>
-      <p class="hero-subtitle">Tu referencia en DevOps, Cloud Computing y Automatización</p>
-      <p class="hero-description">Tutoriales actualizados, guías detalladas y mejores prácticas sobre Azure, Terraform, Kubernetes y más.</p>
-      <div class="hero-cta">
-        <a href="#blog" class="btn btn--primary btn--large">Explorar Artículos</a>
-        <a href="#newsletter" class="btn btn--secondary btn--large">Suscribirse</a>
+<div class="hero-section">
+  <h1>TheCloudvops</h1>
+  <p class="hero-subtitle">Tu referencia en DevOps, Cloud Computing y Automatización</p>
+  <p class="hero-description">Tutoriales actualizados, guías detalladas y mejores prácticas sobre Azure, Terraform, Kubernetes y más.</p>
+  <div class="hero-cta">
+    <a href="#blog" class="btn">Explorar Artículos</a>
+    <a href="#newsletter" class="btn">Suscribirse</a>
+  </div>
+</div>
+
+<div class="featured-topics-section">
+  <h2>Categorías</h2>
+  <div class="topics-grid">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags limit:6 %}
+      <div class="topic-card">
+        <h3>{{ tag[0] }}</h3>
+        <p>{{ tag[1].size }} artículos</p>
+        <a href="{{ site.baseurl }}/blog/">Explorar →</a>
       </div>
-    </div>
-    <div class="hero-image">
-      <svg class="hero-illustration" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="150" fill="#3498db" opacity="0.1"/>
-        <circle cx="200" cy="200" r="100" fill="#2ecc71" opacity="0.15"/>
-        <circle cx="200" cy="200" r="50" fill="#e74c3c" opacity="0.2"/>
-      </svg>
-    </div>
+    {% endfor %}
   </div>
-</section>
+</div>
 
-<section class="featured-topics-section">
-  <div class="container">
-    <h2 class="section-title">Categorías</h2>
-    <div class="topics-grid">
-      {% assign sorted_tags = site.tags | sort %}
-      {% for tag in sorted_tags limit:6 %}
-        <div class="topic-card">
-          <h3>{{ tag[0] }}</h3>
-          <p class="topic-count">{{ tag[1].size }} artículos</p>
-          <a href="{{ site.baseurl }}/blog/" class="topic-link">Explorar →</a>
+<div class="latest-articles-section" id="blog">
+  <h2>Últimos Artículos</h2>
+  <a href="{{ site.baseurl }}/blog/">Ver todos →</a>
+
+  <div class="articles-grid">
+    {% for post in site.posts limit:6 %}
+      <article class="article-card">
+        {% if post.image %}
+          <img src="{{ post.image }}" alt="{{ post.title }}">
+        {% endif %}
+        <div class="article-meta">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+            {{ post.date | date: "%d %b %Y" }}
+          </time>
         </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="latest-articles-section" id="blog">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Últimos Artículos</h2>
-      <a href="{{ site.baseurl }}/blog/" class="view-all">Ver todos →</a>
-    </div>
-    
-    <div class="articles-grid">
-      {% for post in site.posts limit:6 %}
-        <article class="article-card">
-          {% if post.image %}
-            <div class="article-image">
-              <img src="{{ post.image }}" alt="{{ post.title }}">
-              <div class="article-category">{{ post.categories[0] }}</div>
-            </div>
+        <h3>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <p>
+          {% if post.excerpt %}
+            {{ post.excerpt | strip_html | truncatewords: 20 }}
+          {% else %}
+            {{ post.content | strip_html | truncatewords: 20 }}
           {% endif %}
-          <div class="article-content">
-            <div class="article-meta">
-              <time datetime="{{ post.date | date: '%Y-%m-%d' }}" class="article-date">
-                {{ post.date | date: "%d %b %Y" }}
-              </time>
-              <span class="article-read-time">5 min lectura</span>
-            </div>
-            <h3 class="article-title">
-              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </h3>
-            <p class="article-excerpt">
-              {% if post.excerpt %}
-                {{ post.excerpt | strip_html | truncatewords: 20 }}
-              {% else %}
-                {{ post.content | strip_html | truncatewords: 20 }}
-              {% endif %}
-            </p>
-            <div class="article-tags">
-              {% for tag in post.tags limit:3 %}
-                <span class="tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Leer artículo →</a>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
+        </p>
+        <div class="article-tags">
+          {% for tag in post.tags limit:3 %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <a href="{{ site.baseurl }}{{ post.url }}">Leer artículo →</a>
+      </article>
+    {% endfor %}
   </div>
-</section>
+</div>
 
-<section class="newsletter-section" id="newsletter">
-  {% include newsletter.html %}
-</section>
+<div class="newsletter-section" id="newsletter">
+  <h2>Mantente Actualizado</h2>
+  <p>Suscríbete a nuestro newsletter y recibe las últimas noticias, tutoriales y mejores prácticas de DevOps y Cloud Computing directamente en tu correo.</p>
 
-<section class="cta-section">
-  <div class="container">
-    <h2>¿Necesitas ayuda con tu transformación Cloud?</h2>
-    <p>Sígueme en redes sociales para consejos diarios sobre DevOps y Cloud Computing</p>
-    <div class="social-links">
-      <a href="https://linkedin.com/in/alberto-ventura-662996166" class="social-btn" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/thecloudvops" class="social-btn" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://instagram.com/alberto_ventu94" class="social-btn" title="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
+  <form action="https://formspree.io/f/xpznqkgb" method="POST" class="newsletter-form">
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <button type="submit">Suscribirse</button>
+  </form>
+</div>
+
+<div class="cta-section">
+  <h2>¿Necesitas ayuda con tu transformación Cloud?</h2>
+  <p>Sígueme en redes sociales para consejos diarios sobre DevOps y Cloud Computing</p>
+  <div class="social-links">
+    <a href="https://linkedin.com/in/alberto-ventura-662996166" class="social-btn">LinkedIn</a>
+    <a href="https://github.com/thecloudvops" class="social-btn">GitHub</a>
+    <a href="https://instagram.com/alberto_ventu94" class="social-btn">Instagram</a>
   </div>
-</section>
+</div>
 
 <style>
-/* Variables de Color */
-:root {
-  --primary-color: #3498db;
-  --secondary-color: #2ecc71;
-  --accent-color: #e74c3c;
-  --dark-bg: #1a1a1a;
-  --light-bg: #f5f5f5;
-  --text-dark: #2c3e50;
-  --text-light: #7f8c8d;
-  --border-color: #ecf0f1;
-}
-
-/* Hero Section */
+/* Custom styles for Cayman theme compatibility */
 .hero-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: white;
-  margin-bottom: 4rem;
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #f8f9fa;
+  margin-bottom: 2rem;
 }
 
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.hero-text {
-  animation: fadeInLeft 0.8s ease-out;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
+.hero-section h1 {
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  line-height: 1.1;
 }
 
 .hero-subtitle {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  color: #666;
   margin-bottom: 1rem;
-  opacity: 0.95;
-  font-weight: 600;
 }
 
 .hero-description {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  opacity: 0.9;
-  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-cta {
   display: flex;
   gap: 1rem;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-.hero-image {
-  animation: fadeInRight 0.8s ease-out;
-  text-align: center;
-}
-
-.hero-illustration {
-  max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
-}
-
-/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
-
-.btn--primary {
-  background-color: white;
-  color: var(--primary-color);
-}
-
-.btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.btn--secondary {
-  background-color: transparent;
+  background: #0366d6;
   color: white;
-  border: 2px solid white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
 }
 
-.btn--secondary:hover {
-  background-color: white;
-  color: var(--primary-color);
+.btn:hover {
+  background: #0256cc;
 }
 
-.btn--large {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-}
-
-/* Featured Topics */
-.featured-topics-section {
-  padding: 4rem 2rem;
-  background-color: var(--light-bg);
-}
-
-.container {
-  max-width: 1200px;
+.featured-topics-section,
+.latest-articles-section,
+.newsletter-section,
+.cta-section {
+  padding: 2rem 1rem;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: var(--text-dark);
-  margin-bottom: 3rem;
+.featured-topics-section h2,
+.latest-articles-section h2,
+.newsletter-section h2,
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-weight: 700;
 }
 
 .topics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .topic-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.375rem;
   text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-}
-
-.topic-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-  border-color: var(--primary-color);
-}
-
-.topic-icon {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
 }
 
 .topic-card h3 {
-  font-size: 1.5rem;
-  color: var(--text-dark);
   margin-bottom: 0.5rem;
 }
 
-.topic-count {
-  color: var(--text-light);
-  margin-bottom: 1rem;
-}
-
-.topic-link {
-  color: var(--primary-color);
+.topic-card a {
+  color: #0366d6;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.topic-link:hover {
-  color: var(--secondary-color);
-}
-
-/* Latest Articles */
-.latest-articles-section {
-  padding: 4rem 2rem;
-  background-color: white;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-
-.view-all {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.view-all:hover {
-  color: var(--secondary-color);
 }
 
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .article-card {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 1rem;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
-.article-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-  border-color: var(--primary-color);
-}
-
-.article-image {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-
-.article-image img {
+.article-card img {
   width: 100%;
-  height: 100%;
+  height: 150px;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.article-card:hover .article-image img {
-  transform: scale(1.05);
-}
-
-.article-category {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--accent-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.article-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
 }
 
 .article-meta {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
   font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
 }
 
-.article-date {
-  color: var(--text-light);
+.article-card h3 {
+  margin-bottom: 0.5rem;
 }
 
-.article-read-time {
-  color: var(--secondary-color);
-  font-weight: 600;
-}
-
-.article-title {
-  font-size: 1.4rem;
-  color: var(--text-dark);
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.article-title a {
-  color: var(--text-dark);
+.article-card h3 a {
+  color: #0366d6;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.article-title a:hover {
-  color: var(--primary-color);
+.article-card h3 a:hover {
+  text-decoration: underline;
 }
 
-.article-excerpt {
-  color: var(--text-light);
+.article-card p {
+  color: #666;
   margin-bottom: 1rem;
   line-height: 1.6;
-  flex: 1;
 }
 
 .article-tags {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
   margin-bottom: 1rem;
 }
 
 .tag {
   display: inline-block;
-  background-color: var(--light-bg);
-  color: var(--text-dark);
-  padding: 0.35rem 0.75rem;
-  border-radius: 2rem;
+  background: #f1f3f4;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
   font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.article-card a:last-child {
+  color: #0366d6;
+  text-decoration: none;
   font-weight: 500;
 }
 
-.read-more {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  align-self: flex-start;
+.article-card a:last-child:hover {
+  text-decoration: underline;
 }
 
-.read-more:hover {
-  color: var(--secondary-color);
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 400px;
+  margin: 1rem auto;
 }
 
-/* Newsletter Section */
-.newsletter-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+.newsletter-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.375rem;
 }
 
-/* CTA Section */
-.cta-section {
-  padding: 4rem 2rem;
-  background-color: var(--dark-bg);
+.newsletter-form button {
+  padding: 0.5rem 1rem;
+  background: #0366d6;
   color: white;
-  text-align: center;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
 }
 
-.cta-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.cta-section p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
+.newsletter-form button:hover {
+  background: #0256cc;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .social-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255,255,255,0.1);
-  color: white;
-  border-radius: 50%;
+  color: #0366d6;
   text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0366d6;
+  border-radius: 0.375rem;
 }
 
 .social-btn:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-3px);
+  background: #0366d6;
+  color: white;
 }
 
-/* Animations */
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.3rem;
-  }
-
   .hero-cta {
     flex-direction: column;
+    align-items: center;
   }
 
   .btn {
-    width: 100%;
+    width: 200px;
     text-align: center;
-  }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .articles-grid {
     grid-template-columns: 1fr;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form button {
+    width: 100%;
   }
 }
 </style>

@@ -1,147 +1,154 @@
 ---
 layout: default
-classes: wide
 ---
 
-{% assign post = page %}
-{% assign related_posts = site.posts | where_exp: "post", "post.tags contains page.tags.first" | where_exp: "post", "post.url != page.url" | limit: 3 %}
-
-<div class="post-container">
-  {% if page.header.image %}
-    <div class="post-header-image" style="background-image: url('{{ page.header.image | relative_url }}');">
-      <div class="post-header-overlay">
-        <div class="post-header-content">
-          <h1 class="post-title">{{ page.title }}</h1>
-          
-          <!-- Breadcrumbs -->
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol>
-              <li><a href="{{ site.baseurl }}/">Home</a></li>
-              {% if page.categories %}
-                <li><a href="{{ site.baseurl }}/categories/#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a></li>
-              {% endif %}
-              <li>{{ page.title }}</li>
-            </ol>
-          </nav>
-
-          <!-- Metadatos del post -->
-          <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-            {% if page.author %}
-              • <span class="post-author">{{ page.author }}</span>
-            {% endif %}
-            {% if page.tags.size > 0 %}
-              <div class="post-tags">
-                {% for tag in page.tags %}
-                  <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">#{{ tag }}</a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
+<article class="post">
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      {% if page.author %}
+        • <span class="author">{{ page.author }}</span>
+      {% endif %}
+      {% if page.categories %}
+        • <span class="categories">
+          {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+      {% endif %}
     </div>
-  {% else %}
-    <header class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>
-      
-      <!-- Breadcrumbs -->
-      <nav class="breadcrumbs" aria-label="breadcrumb">
-        <ol>
-          <li><a href="{{ site.baseurl }}/">Home</a></li>
-          {% if page.categories %}
-            <li><a href="{{ site.baseurl }}/categories/#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a></li>
-          {% endif %}
-          <li>{{ page.title }}</li>
-        </ol>
-      </nav>
-
-      <!-- Metadatos del post -->
-      <div class="post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        {% if page.author %}
-          • <span class="post-author">{{ page.author }}</span>
-        {% endif %}
-        {% if page.tags.size > 0 %}
-          <div class="post-tags">
-            {% for tag in page.tags %}
-              <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">#{{ tag }}</a>
-            {% endfor %}
-          </div>
-        {% endif %}
-      </div>
-    </header>
-  {% endif %}
+  </header>
 
   <div class="post-content">
     {{ content }}
   </div>
 
-  <!-- Sección de artículos relacionados -->
-  {% if related_posts.size > 0 %}
-    <section class="related-posts-section">
-      <div class="container">
-        <h2 class="section-title">Artículos Relacionados</h2>
-        <div class="related-posts-grid">
-          {% for related_post in related_posts %}
-            <article class="article-card">
-              {% if related_post.header.image %}
-                <div class="article-image">
-                  <img src="{{ related_post.header.image | relative_url }}" alt="{{ related_post.title }}">
-                  <div class="article-category">{{ related_post.categories[0] }}</div>
-                </div>
-              {% endif %}
-              <div class="article-content">
-                <div class="article-meta">
-                  <time datetime="{{ related_post.date | date: '%Y-%m-%d' }}" class="article-date">
-                    {{ related_post.date | date: "%d %b %Y" }}
-                  </time>
-                  <span class="article-read-time">5 min lectura</span>
-                </div>
-                <h3 class="article-title">
-                  <a href="{{ site.baseurl }}{{ related_post.url }}">{{ related_post.title }}</a>
-                </h3>
-                <p class="article-excerpt">
-                  {% if related_post.excerpt %}
-                    {{ related_post.excerpt | strip_html | truncatewords: 20 }}
-                  {% else %}
-                    {{ related_post.content | strip_html | truncatewords: 20 }}
-                  {% endif %}
-                </p>
-                <div class="article-tags">
-                  {% for tag in related_post.tags limit:3 %}
-                    <span class="tag">{{ tag }}</span>
-                  {% endfor %}
-                </div>
-                <a href="{{ site.baseurl }}{{ related_post.url }}" class="read-more">Leer artículo →</a>
-              </div>
-            </article>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-  {% endif %}
-
-  <!-- Navegación entre posts -->
-  <nav class="post-navigation">
-    <div class="nav-links">
-      {% if page.previous.url %}
-        <div class="nav-previous">
-          <a href="{{ page.previous.url | relative_url }}" rel="prev">
-            <span class="nav-subtitle">Anterior</span>
-            <span class="nav-title">{{ page.previous.title }}</span>
-          </a>
-        </div>
-      {% endif %}
-      
-      {% if page.next.url %}
-        <div class="nav-next">
-          <a href="{{ page.next.url | relative_url }}" rel="next">
-            <span class="nav-subtitle">Siguiente</span>
-            <span class="nav-title">{{ page.next.title }}</span>
-          </a>
-        </div>
-      {% endif %}
+  {% if page.tags %}
+  <footer class="post-footer">
+    <div class="post-tags">
+      <h3>Tags:</h3>
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+      {% endfor %}
     </div>
-  </nav>
-</div>
+  </footer>
+  {% endif %}
+</article>
+
+<style>
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-header h1 {
+  color: #0366d6;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: #586069;
+  font-size: 0.9rem;
+}
+
+.post-meta a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+.post-content {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: #0366d6;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #0366d6;
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #586069;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e1e4e8;
+}
+
+.post-tags {
+  margin-bottom: 1rem;
+}
+
+.post-tags h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #586069;
+}
+
+.tag {
+  display: inline-block;
+  background: #f1f3f4;
+  color: #0366d6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  border: 1px solid #0366d6;
+}
+
+.tag:hover {
+  background: #0366d6;
+  color: white;
+}
+</style>

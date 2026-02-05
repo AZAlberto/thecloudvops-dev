@@ -6,7 +6,8 @@ last_modified_at: 2025-11-07
 author: "Alberto Ventura"
 categories:
   - Infrastructure as Code
-  - DevOpstags:
+  - DevOps
+tags:
   - DevOps
   - GitOps
   - Azure DevOps

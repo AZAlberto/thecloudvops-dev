@@ -7,7 +7,8 @@ author: "Alberto Ventura"
 categories:
   - Azure
   - Infrastructure as Code
-  - DevOpstags:
+  - DevOps
+tags:
   - Terraform
   - Azure
   - Microsoft

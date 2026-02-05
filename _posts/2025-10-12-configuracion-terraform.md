@@ -6,7 +6,8 @@ last_modified_at: 2025-10-11
 author: "Alberto Ventura"
 categories:
   - Infrastructure as Code
-  - DevOpstags:
+  - DevOps
+tags:
   - Terraform
   - IaC
   - DevOps

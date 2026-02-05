@@ -20,6 +20,7 @@ title: TheCloudvops - DevOps, Cloud y Automatización
       <li><a href="{{ site.baseurl }}/">Inicio</a></li>
       <li><a href="{{ site.baseurl }}/blog/">Blog</a></li>
       <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#about">Sobre mí</a></li>
     </ul>
   </div>
 </nav>
@@ -82,6 +83,29 @@ title: TheCloudvops - DevOps, Cloud y Automatización
     <input type="email" name="email" placeholder="Tu correo electrónico" required>
     <button type="submit">Suscribirse</button>
   </form>
+</div>
+
+<div class="about-section" id="about">
+  <h2>Sobre mí</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Hola, soy <strong>Alberto Ventura</strong>, un apasionado del mundo DevOps y Cloud Computing. Con más de 5 años de experiencia en el sector tecnológico, me especializo en ayudar a empresas y profesionales a transformar sus procesos mediante soluciones cloud innovadoras.</p>
+
+      <p>Mi expertise incluye:</p>
+      <ul>
+        <li><strong>Azure DevOps</strong> - CI/CD, pipelines automatizados</li>
+        <li><strong>Terraform</strong> - Infrastructure as Code</li>
+        <li><strong>Kubernetes</strong> - Orquestación de contenedores</li>
+        <li><strong>Azure Cloud</strong> - Servicios y mejores prácticas</li>
+        <li><strong>DevOps Culture</strong> - Transformación cultural y procesos</li>
+      </ul>
+
+      <p>Creo en el poder de compartir conocimiento y por eso mantengo este blog, donde encontrarás tutoriales actualizados, guías prácticas y consejos basados en experiencia real en proyectos enterprise.</p>
+    </div>
+    <div class="about-image">
+      <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}">
+    </div>
+  </div>
 </div>
 
 <div class="cta-section">
@@ -376,6 +400,71 @@ title: TheCloudvops - DevOps, Cloud y Automatización
 
   .newsletter-form button {
     width: 100%;
+  }
+}
+
+/* About section styles */
+.about-section {
+  padding: 3rem 0;
+  background: #f8f9fa;
+  margin: 2rem 0;
+}
+
+.about-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0366d6;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-text {
+  line-height: 1.6;
+}
+
+.about-text ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.about-text li {
+  margin-bottom: 0.5rem;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0366d6;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .about-image img {
+    width: 150px;
+    height: 150px;
   }
 }
 </style>

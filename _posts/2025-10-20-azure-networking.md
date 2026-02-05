@@ -1,17 +1,16 @@
 ---
-layout: post
 title: "Arquitectura de Networking en Azure con Terraform: Guía Completa"
 date: 2025-10-09
-last_modified_at: 2025-10-09
-author: "Alberto Ventura"
 categories:
-  - Azure
-  - Infrastructure as Codetags:
+  - blog
+tags:
   - Azure
   - Terraform
   - Networking
   - IaC
   - Cloud
+---
+
 ## Introducción
 
 La implementación de una arquitectura de red sólida en Azure es fundamental para cualquier despliegue en la nube. En este artículo, exploraremos cómo diseñar e implementar una infraestructura de red completa utilizando Terraform.

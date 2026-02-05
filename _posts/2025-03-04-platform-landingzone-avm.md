@@ -1,18 +1,14 @@
 ---
-layout: post
 title: "Disponibilidad General de los Módulos Verificados de Terraform para Azure"
-date: 2025-01-01
-last_modified_at: 2025-01-01
-author: "Alberto Ventura"
 categories:
-  - Azure
-  - Infrastructure as Code
-  - DevOps
+  - blog
 tags:
   - Terraform
   - Azure
   - Microsoft
   - DevOps
+---
+
 Microsoft ha anunciado la **disponibilidad general** de los **Terraform Azure Verified Modules** para la **Platform Landing Zone (ALZ)**. Estos módulos permiten a los usuarios crear infraestructuras de landing zone en **Azure** de manera modular, lo que facilita la selección de componentes específicos según las necesidades del proyecto.
 
 Además, el nuevo **Terraform provider** mejora la fiabilidad de los despliegues, y el **ALZ IaC Accelerator** ahora incluye archivos en formato **HCL** y nuevas fases de planificación. Todo esto permite personalizar y gestionar más fácilmente las configuraciones de landing zones, sin complicar el proceso de implementación.

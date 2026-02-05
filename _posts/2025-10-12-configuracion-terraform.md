@@ -1,18 +1,16 @@
 ---
-layout: post
 title: "Configuración del Entorno para Terraform: Guía Completa"
 date: 2025-10-11
-last_modified_at: 2025-10-11
-author: "Alberto Ventura"
 categories:
-  - Infrastructure as Code
-  - DevOps
+  - blog
 tags:
   - Terraform
   - IaC
   - DevOps
   - Automatización
   - Cloud
+---
+
 ## Introducción
 
 Para comenzar a desarrollar Infraestructura como Código (IaC) con Terraform, necesitas configurar adecuadamente tu entorno de desarrollo. En esta guía, te explicaré paso a paso todo lo necesario para empezar.

@@ -1,12 +1,8 @@
 ---
-layout: post
 title: "Pipeline DevOps del Futuro: GitOps, Terraform y Azure DevOps en 2026"
 date: 2025-11-07
-last_modified_at: 2025-11-07
-author: "Alberto Ventura"
 categories:
-  - Infrastructure as Code
-  - DevOps
+  - blog
 tags:
   - DevOps
   - GitOps
@@ -15,6 +11,11 @@ tags:
   - Microservicios
   - CI/CD
   - Automatización
+seo:
+  type: TechArticle
+  description: "Implementación completa de GitOps y CI/CD moderno con Terraform y Azure DevOps. Guía práctica para equipos DevOps en 2026."
+---
+
 ## La Evolución del Pipeline DevOps: Hacia un Futuro GitOps
 
 La automatización y el control de versiones del código se han convertido en el estándar para la infraestructura moderna. Este artículo presenta una implementación completa de GitOps con Terraform y Azure DevOps.

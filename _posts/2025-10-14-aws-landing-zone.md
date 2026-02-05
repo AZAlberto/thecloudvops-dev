@@ -1,17 +1,16 @@
 ---
-layout: post
 title: "Implementando AWS Landing Zone: Una Guía Práctica para Empresas Multi-cuenta"
 date: 2025-10-10
-last_modified_at: 2025-10-10
-author: "Alberto Ventura"
 categories:
-  - AWS
-  - Infrastructure as Codetags:
+  - blog
+tags:
   - AWS
   - Landing Zone
   - Cloud
   - IaC
   - Terraform
+---
+
 ## Introducción
 
 La gestión de múltiples cuentas en AWS es un desafío común para las organizaciones en crecimiento. AWS Landing Zone proporciona una base segura y bien arquitectada para gestionar múltiples cuentas y workloads. En este artículo, exploraremos cómo implementar una Landing Zone en AWS usando las mejores prácticas y herramientas de Infrastructure as Code.

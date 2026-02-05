@@ -1,19 +1,16 @@
 ---
-layout: post
 title: "Optimización de Costos en Azure: Implementando Azure Cost Management con Terraform"
 date: 2025-10-10
-last_modified_at: 2025-10-10
-author: "Alberto Ventura"
 categories:
-  - Azure
-  - Infrastructure as Code
-  - DevOps
+  - blog
 tags:
   - Azure
   - Terraform
   - DevOps
   - Cost Management
   - IaC
+---
+
 ![Azure Cost Management Dashboard](/assets/images/posts/azure-cost/azure-cost-dashboard.png)
 
 ## Introducción

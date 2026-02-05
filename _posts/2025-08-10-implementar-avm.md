@@ -1,18 +1,14 @@
 ---
-layout: post
 title: "Guía práctica: implementar Terraform Azure Verified Modules para ALZ"
-date: 2025-01-01
-last_modified_at: 2025-01-01
-author: "Alberto Ventura"
 categories:
-  - Azure
-  - Infrastructure as Code
-  - DevOps
+  - blog
 tags:
   - Terraform
   - Azure
   - Microsoft
   - DevOps
+---
+
 ## Introducción
 
 Cuando trabajamos en la nube, uno de los grandes retos es **mantener la organización, seguridad y consistencia** en todos los recursos que desplegamos.  

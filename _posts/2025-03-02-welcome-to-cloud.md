@@ -1,18 +1,12 @@
 ---
-layout: post
 title: "Bienvenido a Thecloudvops!"
-date: 2025-01-01
-last_modified_at: 2025-01-01
-author: "Alberto Ventura"
 categories:
-  - Azure
-  - DevOps
+  - blog
 tags:
   - DevOps
   - Azure
   - Microsoft
   - Bienvenida
-excerpt: "Bienvenido a Thecloudvops! - Guía completa y mejores prácticas."
 ---
 
 ¡Bienvenido a **Thecloudvops**! Este es tu nuevo espacio para aprender, compartir y explorar todo lo relacionado con el mundo de **DevOps**, con un enfoque especial en **Azure** y las tecnologías de **Microsoft**. Aquí encontrarás recursos útiles, tutoriales, guías paso a paso y noticias para mantenerte al día con las últimas tendencias en integración continua, automatización y desarrollo en la nube.

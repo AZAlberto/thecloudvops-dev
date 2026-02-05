@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Implementando AWS Landing Zone: Una Guía Práctica para Empresas Multi-cuenta"
 date: 2025-10-10
+last_modified_at: 2025-10-10
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -9,6 +13,14 @@ tags:
   - Cloud
   - IaC
   - Terraform
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Implementando AWS Landing Zone - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Introducción

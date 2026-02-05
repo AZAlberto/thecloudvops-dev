@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Pipeline DevOps del Futuro: GitOps, Terraform y Azure DevOps en 2026"
 date: 2025-11-07
+last_modified_at: 2025-11-07
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -11,9 +15,14 @@ tags:
   - Microservicios
   - CI/CD
   - Automatización
-seo:
-  type: TechArticle
-  description: "Implementación completa de GitOps y CI/CD moderno con Terraform y Azure DevOps. Guía práctica para equipos DevOps en 2026."
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Pipeline DevOps del Futuro - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## La Evolución del Pipeline DevOps: Hacia un Futuro GitOps

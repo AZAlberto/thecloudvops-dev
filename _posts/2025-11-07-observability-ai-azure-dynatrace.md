@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Observabilidad impulsada por IA: Integración de Azure y Dynatrace para Operaciones Modernas"
 date: 2025-11-07
+last_modified_at: 2025-11-07
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -11,9 +15,14 @@ tags:
   - Monitorización
   - DevOps
   - AIOps
-seo:
-  type: TechArticle
-  description: "Guía definitiva sobre observabilidad basada en IA en Azure con Dynatrace. Aprende a implementar AIOps y mejorar el monitoreo de aplicaciones modernas."
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Observabilidad impulsada por IA - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## La Nueva Era de la Observabilidad: IA + Azure + Dynatrace

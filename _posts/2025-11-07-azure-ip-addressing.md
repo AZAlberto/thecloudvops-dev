@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Arquitectura de Direccionamiento IP en Azure: Una Guía Completa para 2026"
 date: 2025-11-07
+last_modified_at: 2025-11-07
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -11,9 +15,14 @@ tags:
   - Subnet
   - Security
   - Peering
-seo:
-  type: TechArticle
-  description: "Guía definitiva sobre planificación y gestión de direccionamiento IP en Azure. Aprende sobre diseño de VNETs, subnetting y mejores prácticas de seguridad."
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Arquitectura de Direccionamiento IP en Azure - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Fundamentos del Direccionamiento IP en Azure

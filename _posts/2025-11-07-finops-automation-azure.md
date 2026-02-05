@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Automatización de FinOps: Implementación de Presupuestos y Alertas con Terraform en Azure para 2026"
 date: 2025-11-07
+last_modified_at: 2025-11-07
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -11,9 +15,14 @@ tags:
   - Automatización
   - Presupuestos
   - Monitorización
-seo:
-  type: TechArticle
-  description: "Guía completa de automatización de FinOps en Azure usando Terraform. Aprende a implementar presupuestos, alertas y dashboards para control de costes en 2026."
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Automatización de FinOps - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## La Evolución del FinOps en Azure: Más Allá del Control Manual

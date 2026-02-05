@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Arquitectura de Networking en Azure con Terraform: Guía Completa"
 date: 2025-10-09
+last_modified_at: 2025-10-09
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -9,6 +13,14 @@ tags:
   - Networking
   - IaC
   - Cloud
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Arquitectura de Networking en Azure con Terraform - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Introducción

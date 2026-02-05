@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Gestión de Código para Landing Zones con GitHub y Terraform"
 date: 2025-10-11
+last_modified_at: 2025-10-11
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -9,6 +13,14 @@ tags:
   - Landing Zone
   - DevOps
   - IaC
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Gestión de Código para Landing Zones con GitHub y Terraform - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Introducción

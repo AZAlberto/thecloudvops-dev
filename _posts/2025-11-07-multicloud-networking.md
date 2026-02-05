@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Redes Multi-nube para Empresas: Buenas Prácticas en Azure + AWS + Kubernetes"
 date: 2025-11-07
+last_modified_at: 2025-11-07
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -11,9 +15,14 @@ tags:
   - Kubernetes
   - Terraform
   - Seguridad
-seo:
-  type: TechArticle
-  description: "Guía completa sobre diseño e implementación de redes multi-nube. Aprende a configurar y gestionar redes empresariales en Azure, AWS y Kubernetes."
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Redes Multi-nube para Empresas - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Diseño de Redes Multi-nube: El Nuevo Estándar Empresarial

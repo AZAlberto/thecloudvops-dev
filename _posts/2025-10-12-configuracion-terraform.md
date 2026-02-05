@@ -1,6 +1,10 @@
 ---
+layout: post
 title: "Configuración del Entorno para Terraform: Guía Completa"
 date: 2025-10-11
+last_modified_at: 2025-10-11
+author: "Alberto Ventura"
+author_profile: true
 categories:
   - blog
 tags:
@@ -9,6 +13,14 @@ tags:
   - DevOps
   - Automatización
   - Cloud
+header:
+  overlay_image: /assets/images/posts/default-header.jpg
+  overlay_filter: 0.5
+excerpt: "Configuración del Entorno para Terraform - Guía completa y mejores prácticas."
+toc: true
+toc_label: "Contenido"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Introducción

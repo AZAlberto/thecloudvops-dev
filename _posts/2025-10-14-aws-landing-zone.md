@@ -6,8 +6,8 @@ last_modified_at: 2025-10-10
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - AWS
+  - Infrastructure as Codetags:
   - AWS
   - Landing Zone
   - Cloud
@@ -16,7 +16,7 @@ tags:
 header:
   overlay_image: /assets/images/posts/default-header.jpg
   overlay_filter: 0.5
-excerpt: "Implementando AWS Landing Zone - Guía completa y mejores prácticas."
+excerpt: "Aprende a implementar una AWS Landing Zone completa con Terraform para gestionar múltiples cuentas de forma segura y escalable. Guía práctica con mejores prácticas incluidas."
 toc: true
 toc_label: "Contenido"
 toc_icon: "list"

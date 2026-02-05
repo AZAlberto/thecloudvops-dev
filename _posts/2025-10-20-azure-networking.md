@@ -6,8 +6,8 @@ last_modified_at: 2025-10-09
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - Azure
+  - Infrastructure as Codetags:
   - Azure
   - Terraform
   - Networking

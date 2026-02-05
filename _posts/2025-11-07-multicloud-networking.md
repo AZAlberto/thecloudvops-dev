@@ -6,8 +6,9 @@ last_modified_at: 2025-11-07
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - AWS
+  - Azure
+  - Infrastructure as Codetags:
   - Networking
   - Multi-cloud
   - Azure

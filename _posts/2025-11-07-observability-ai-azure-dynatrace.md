@@ -6,8 +6,9 @@ last_modified_at: 2025-11-07
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - Azure
+  - DevOps
+  - Observabilitytags:
   - Observabilidad
   - IA
   - Azure
@@ -18,7 +19,7 @@ tags:
 header:
   overlay_image: /assets/images/posts/default-header.jpg
   overlay_filter: 0.5
-excerpt: "Observabilidad impulsada por IA - Guía completa y mejores prácticas."
+excerpt: "Descubre cómo implementar observabilidad impulsada por IA integrando Azure Monitor y Dynatrace. Guía completa de AIOps para operaciones modernas."
 toc: true
 toc_label: "Contenido"
 toc_icon: "list"

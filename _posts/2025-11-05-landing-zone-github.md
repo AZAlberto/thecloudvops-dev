@@ -6,8 +6,8 @@ last_modified_at: 2025-10-11
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - Infrastructure as Code
+  - DevOpstags:
   - GitHub
   - Terraform
   - Landing Zone

@@ -6,8 +6,9 @@ last_modified_at: 2025-11-07
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - Azure
+  - Infrastructure as Code
+  - Observabilitytags:
   - FinOps
   - Azure
   - Terraform

@@ -6,8 +6,9 @@ last_modified_at: 2025-01-01
 author: "Alberto Ventura"
 author_profile: true
 categories:
-  - blog
-tags:
+  - Azure
+  - Infrastructure as Code
+  - DevOpstags:
   - Terraform
   - Azure
   - Microsoft

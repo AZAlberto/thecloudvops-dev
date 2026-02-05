@@ -4,7 +4,6 @@ title: "Gestión de Código para Landing Zones con GitHub y Terraform"
 date: 2025-10-11
 last_modified_at: 2025-10-11
 author: "Alberto Ventura"
-author_profile: true
 categories:
   - Infrastructure as Code
   - DevOpstags:
@@ -13,16 +12,6 @@ categories:
   - Landing Zone
   - DevOps
   - IaC
-header:
-  overlay_image: /assets/images/posts/default-header.jpg
-  overlay_filter: 0.5
-excerpt: "Gestión de Código para Landing Zones con GitHub y Terraform - Guía completa y mejores prácticas."
-toc: true
-toc_label: "Contenido"
-toc_icon: "list"
-toc_sticky: true
----
-
 ## Introducción
 
 La gestión eficiente del código de una Landing Zone es crucial para mantener una infraestructura escalable y segura. En este artículo, exploraremos cómo organizar y gestionar el código de una Landing Zone utilizando GitHub y Terraform.

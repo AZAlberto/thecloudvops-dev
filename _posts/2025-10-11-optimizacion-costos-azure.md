@@ -4,7 +4,6 @@ title: "Optimización de Costos en Azure: Implementando Azure Cost Management co
 date: 2025-10-10
 last_modified_at: 2025-10-10
 author: "Alberto Ventura"
-author_profile: true
 categories:
   - Azure
   - Infrastructure as Code
@@ -14,16 +13,6 @@ categories:
   - DevOps
   - Cost Management
   - IaC
-header:
-  overlay_image: /assets/images/posts/default-header.jpg
-  overlay_filter: 0.5
-excerpt: "Optimización de Costos en Azure - Guía completa y mejores prácticas."
-toc: true
-toc_label: "Contenido"
-toc_icon: "list"
-toc_sticky: true
----
-
 ![Azure Cost Management Dashboard](/assets/images/posts/azure-cost/azure-cost-dashboard.png)
 
 ## Introducción

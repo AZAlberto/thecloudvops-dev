@@ -4,7 +4,6 @@ title: "Arquitectura de Direccionamiento IP en Azure: Una Guía Completa para 20
 date: 2025-11-07
 last_modified_at: 2025-11-07
 author: "Alberto Ventura"
-author_profile: true
 categories:
   - Azuretags:
   - Azure
@@ -14,16 +13,6 @@ categories:
   - Subnet
   - Security
   - Peering
-header:
-  overlay_image: /assets/images/posts/default-header.jpg
-  overlay_filter: 0.5
-excerpt: "Arquitectura de Direccionamiento IP en Azure - Guía completa y mejores prácticas."
-toc: true
-toc_label: "Contenido"
-toc_icon: "list"
-toc_sticky: true
----
-
 ## Fundamentos del Direccionamiento IP en Azure
 
 El diseño eficiente del direccionamiento IP es crucial para cualquier infraestructura en la nube. Este artículo proporciona una guía completa sobre cómo planificar y gestionar direccionamientos IP en Azure.

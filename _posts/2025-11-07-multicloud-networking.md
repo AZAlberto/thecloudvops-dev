@@ -4,7 +4,6 @@ title: "Redes Multi-nube para Empresas: Buenas Prácticas en Azure + AWS + Kuber
 date: 2025-11-07
 last_modified_at: 2025-11-07
 author: "Alberto Ventura"
-author_profile: true
 categories:
   - AWS
   - Azure
@@ -16,16 +15,6 @@ categories:
   - Kubernetes
   - Terraform
   - Seguridad
-header:
-  overlay_image: /assets/images/posts/default-header.jpg
-  overlay_filter: 0.5
-excerpt: "Redes Multi-nube para Empresas - Guía completa y mejores prácticas."
-toc: true
-toc_label: "Contenido"
-toc_icon: "list"
-toc_sticky: true
----
-
 ## Diseño de Redes Multi-nube: El Nuevo Estándar Empresarial
 
 La adopción de arquitecturas multi-nube requiere un enfoque sofisticado para el diseño de redes. Este artículo proporciona una guía completa para implementar una estrategia de networking efectiva entre Azure, AWS y Kubernetes.

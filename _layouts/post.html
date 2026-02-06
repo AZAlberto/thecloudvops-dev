@@ -40,6 +40,13 @@ layout: default
   {% endif %}
 </article>
 
+<!-- Botón flotante para ir arriba con la fecha del post -->
+{% if page.date %}
+<div class="go-top-date" onclick="window.scrollTo({top:0,behavior:'smooth'});" title="Ir arriba">
+  {{ page.date | date: "%d/%m/%Y" }} ⬆️
+</div>
+{% endif %}
+
 <style>
 .post-header {
   margin-bottom: 2rem;
@@ -171,5 +178,34 @@ layout: default
 
 .back-to-home a:hover {
   text-decoration: underline;
+}
+
+.go-top-date {
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+  background: #0366d6;
+  color: #fff;
+  padding: 0.7em 1.2em;
+  border-radius: 2em;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.85;
+  transition: background 0.2s, opacity 0.2s;
+}
+.go-top-date:hover {
+  background: #024fa2;
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .go-top-date {
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+    right: 1vw;
+    bottom: 1vw;
+  }
 }
 </style>

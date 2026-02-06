@@ -40,12 +40,12 @@ layout: default
   {% endif %}
 </article>
 
-<!-- Botón flotante para ir arriba con la fecha del post -->
-{% if page.date %}
-<div class="go-top-date" onclick="window.scrollTo({top:0,behavior:'smooth'});" title="Ir arriba">
-  {{ page.date | date: "%d/%m/%Y" }} ⬆️
+<!-- Botón flotante para ir arriba -->
+<div class="go-top-arrow" onclick="window.scrollTo({top:0,behavior:'smooth'});" title="Ir arriba">
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 24V8M16 8L8 16M16 8L24 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </div>
-{% endif %}
 
 <style>
 .post-header {
@@ -180,32 +180,39 @@ layout: default
   text-decoration: underline;
 }
 
-.go-top-date {
+.go-top-arrow {
   position: fixed;
   right: 2vw;
   bottom: 2vw;
-  background: #0366d6;
+  background: rgba(3,102,214,0.55);
   color: #fff;
-  padding: 0.7em 1.2em;
-  border-radius: 2em;
-  font-size: 1rem;
-  font-weight: 500;
+  padding: 0.7em 0.9em;
+  border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   cursor: pointer;
   z-index: 9999;
-  opacity: 0.85;
+  opacity: 0.65;
   transition: background 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.go-top-date:hover {
-  background: #024fa2;
+.go-top-arrow:hover {
+  background: rgba(3,102,214,0.85);
   opacity: 1;
 }
+.go-top-arrow svg {
+  display: block;
+}
 @media (max-width: 600px) {
-  .go-top-date {
-    font-size: 0.9rem;
-    padding: 0.5em 1em;
+  .go-top-arrow {
+    padding: 0.5em 0.6em;
     right: 1vw;
     bottom: 1vw;
+  }
+  .go-top-arrow svg {
+    width: 24px;
+    height: 24px;
   }
 }
 </style>

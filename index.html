@@ -9,7 +9,6 @@ title: TheCloudvops - DevOps, Cloud y Automatización
   <p class="hero-description">Un blog personal sobre DevOps, Cloud Computing y tecnología. Tutoriales, experiencias y recursos para aprender juntos.</p>
   <div class="hero-cta">
     <a href="#blog" class="btn">Explorar Artículos</a>
-    <a href="#newsletter" class="btn">Suscribirse</a>
   </div>
 </div>
 
@@ -61,16 +60,6 @@ title: TheCloudvops - DevOps, Cloud y Automatización
       </article>
     {% endfor %}
   </div>
-</div>
-
-<div class="newsletter-section" id="newsletter">
-  <h2>Mantente Actualizado</h2>
-  <p>Suscríbete a nuestro newsletter y recibe las últimas noticias, tutoriales y mejores prácticas de DevOps y Cloud Computing directamente en tu correo.</p>
-
-  <form action="https://formspree.io/f/xpznqkgb" method="POST" class="newsletter-form">
-    <input type="email" name="email" placeholder="Tu correo electrónico" required>
-    <button type="submit">Suscribirse</button>
-  </form>
 </div>
 
 <div class="about-section" id="about">
@@ -147,7 +136,6 @@ title: TheCloudvops - DevOps, Cloud y Automatización
 
 .featured-topics-section,
 .latest-articles-section,
-.newsletter-section,
 .cta-section {
   padding: 2rem 1rem;
   max-width: 800px;
@@ -156,7 +144,6 @@ title: TheCloudvops - DevOps, Cloud y Automatización
 
 .featured-topics-section h2,
 .latest-articles-section h2,
-.newsletter-section h2,
 .cta-section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
@@ -256,33 +243,6 @@ title: TheCloudvops - DevOps, Cloud y Automatización
   text-decoration: underline;
 }
 
-.newsletter-form {
-  display: flex;
-  gap: 0.5rem;
-  max-width: 400px;
-  margin: 1rem auto;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #e1e4e8;
-  border-radius: 0.375rem;
-}
-
-.newsletter-form button {
-  padding: 0.5rem 1rem;
-  background: #0366d6;
-  color: white;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-}
-
-.newsletter-form button:hover {
-  background: #0256cc;
-}
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -316,14 +276,6 @@ title: TheCloudvops - DevOps, Cloud y Automatización
 
   .articles-grid {
     grid-template-columns: 1fr;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .newsletter-form button {
-    width: 100%;
   }
 }
 

@@ -13,12 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "TheCloudvops - Portal DevOps y Cloud | Azure, Terraform, y Automatización"
+title: "TheCloudvops - Blog personal sobre DevOps y Cloud"
 email: contact@thecloudvops.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Portal líder en recursos DevOps y Cloud Computing especializado en Azure y tecnología Microsoft. Encuentra tutoriales expertos, guías detalladas, 
-  y mejores prácticas sobre CI/CD, IaC, y automatización cloud con Azure DevOps, Terraform, y más. 
-  La referencia definitiva para profesionales y empresas en transformación digital con soluciones Microsoft.
+  Blog personal sobre DevOps, Cloud Computing y tecnología. Tutoriales, experiencias y recursos para aprender juntos sobre Azure, Terraform, Kubernetes y más.
 github_username: AZAlberto
 url: "https://thecloudvops.com"
 baseurl: "/thecloudvops-dev"
@@ -29,8 +27,8 @@ header:
 footer:
   image: "/assets/images/layout/footer-bg.jpg"
 social:
-  type: Organization
-  name: TheCloudvops
+  type: Person
+  name: Alberto Ventura
   links:
     - "https://linkedin.com/in/alberto-ventura-662996166"
     - "https://github.com/thecloudvops"
@@ -78,7 +76,7 @@ plugins:
 author:
   name   : "Alberto Ventura"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Apasionado del mundo cloud, Un sitio dedicado a compartir conocimientos y recursos sobre DevOps, con un enfoque especial en Azure y las soluciones tecnológicas de Microsoft. ¡Bienvenido!"
+  bio    : "Apasionado de la tecnología y el aprendizaje continuo. Comparto mis experiencias y conocimientos sobre DevOps, Cloud Computing y desarrollo de software."
   links:
     - label: "Linkedin"
       icon: "fas fa-fw fa-linkedin"

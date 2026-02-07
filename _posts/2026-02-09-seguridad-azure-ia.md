@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Seguridad en Azure Aplicada a IA: Protegiendo Modelos y Datos"
-date: 2026-02-09
+date: 2026-02-07
 categories: [Azure, Seguridad, IA]
 tags: [seguridad, azure-ai, ia, compliance]
 image: "/assets/images/seguridad-azure-ia.jpg"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Observabilidad con IA (AIOps) en Azure: De Logs a Insights Inteligentes"
-date: 2026-02-08
+date: 2026-02-07
 categories: [Azure, Observabilidad, IA]
 tags: [aiops, azure-monitor, ia, observabilidad]
 image: "/assets/images/aiops-azure.jpg"

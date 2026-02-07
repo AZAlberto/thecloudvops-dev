@@ -18,6 +18,15 @@
     <nav class="main-navigation">
       <div class="nav-container">
         <a href="{{ site.baseurl }}/" class="nav-logo">TheCloudvops</a>
+        <div class="search-container">
+          <button class="search-toggle" id="search-toggle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </button>
+          <input type="text" class="search-input" id="search-input" placeholder="Buscar posts...">
+        </div>
         <div class="hamburger-menu">
           <div class="hamburger-icon">
             <span></span>
@@ -61,6 +70,40 @@
       font-weight: bold;
       color: #0366d6;
       text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 1rem;
+    }
+
+    .search-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #586069;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .search-toggle:hover {
+      background: #f6f8fa;
+    }
+
+    .search-input {
+      display: none;
+      padding: 0.5rem;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      width: 200px;
+    }
+
+    .search-input.active {
+      display: block;
     }
 
     .hamburger-menu {
@@ -136,6 +179,37 @@
       }
     }
     </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchToggle = document.getElementById('search-toggle');
+        const searchInput = document.getElementById('search-input');
+
+        searchToggle.addEventListener('click', function() {
+          searchInput.classList.toggle('active');
+          if (searchInput.classList.contains('active')) {
+            searchInput.focus();
+          }
+        });
+
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase();
+          const articles = document.querySelectorAll('.article-card');
+
+          articles.forEach(article => {
+            const title = article.querySelector('h3 a').textContent.toLowerCase();
+            const excerpt = article.querySelector('p') ? article.querySelector('p').textContent.toLowerCase() : '';
+            const tags = Array.from(article.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+
+            if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
+              article.style.display = 'block';
+            } else {
+              article.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>

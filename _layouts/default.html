@@ -25,7 +25,10 @@
               <path d="m21 21-4.35-4.35"></path>
             </svg>
           </button>
-          <input type="text" class="search-input" id="search-input" placeholder="Buscar posts...">
+          <div class="search-wrapper">
+            <input type="text" class="search-input" id="search-input" placeholder="Buscar posts...">
+            <div class="search-suggestions" id="search-suggestions"></div>
+          </div>
         </div>
         <div class="hamburger-menu">
           <div class="hamburger-icon">
@@ -77,6 +80,11 @@
       align-items: center;
       margin-left: auto;
       margin-right: 1rem;
+      position: relative;
+    }
+
+    .search-wrapper {
+      position: relative;
     }
 
     .search-toggle {
@@ -104,6 +112,51 @@
 
     .search-input.active {
       display: block;
+    }
+
+    .search-suggestions {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0.5rem;
+      right: 0;
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .search-suggestions.show {
+      display: block;
+    }
+
+    .suggestion-item {
+      padding: 0.75rem;
+      border-bottom: 1px solid #f6f8fa;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .suggestion-item:hover {
+      background: #f6f8fa;
+    }
+
+    .suggestion-item:last-child {
+      border-bottom: none;
+    }
+
+    .suggestion-title {
+      font-weight: 500;
+      color: #0366d6;
+      margin-bottom: 0.25rem;
+    }
+
+    .suggestion-excerpt {
+      font-size: 0.85rem;
+      color: #586069;
     }
 
     .hamburger-menu {
@@ -184,29 +237,66 @@
       document.addEventListener('DOMContentLoaded', function() {
         const searchToggle = document.getElementById('search-toggle');
         const searchInput = document.getElementById('search-input');
+        const searchSuggestions = document.getElementById('search-suggestions');
+
+        // Lista de posts para búsqueda (solo en home)
+        let posts = [];
+        if (document.querySelector('.latest-articles-section')) {
+          document.querySelectorAll('.article-card').forEach(card => {
+            const title = card.querySelector('h3 a').textContent;
+            const url = card.querySelector('h3 a').href;
+            const excerpt = card.querySelector('p') ? card.querySelector('p').textContent : '';
+            posts.push({ title, url, excerpt });
+          });
+        }
 
         searchToggle.addEventListener('click', function() {
           searchInput.classList.toggle('active');
           if (searchInput.classList.contains('active')) {
             searchInput.focus();
+          } else {
+            searchSuggestions.classList.remove('show');
           }
         });
 
         searchInput.addEventListener('input', function() {
-          const query = this.value.toLowerCase();
-          const articles = document.querySelectorAll('.article-card');
+          const query = this.value.toLowerCase().trim();
+          searchSuggestions.innerHTML = '';
 
-          articles.forEach(article => {
-            const title = article.querySelector('h3 a').textContent.toLowerCase();
-            const excerpt = article.querySelector('p') ? article.querySelector('p').textContent.toLowerCase() : '';
-            const tags = Array.from(article.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+          if (query.length > 0) {
+            const matches = posts.filter(post =>
+              post.title.toLowerCase().includes(query) ||
+              post.excerpt.toLowerCase().includes(query)
+            ).slice(0, 5); // Máximo 5 sugerencias
 
-            if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
-              article.style.display = 'block';
+            if (matches.length > 0) {
+              matches.forEach(match => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+                item.innerHTML = `
+                  <div class="suggestion-title">${match.title}</div>
+                  <div class="suggestion-excerpt">${match.excerpt.substring(0, 100)}...</div>
+                `;
+                item.addEventListener('click', () => {
+                  window.location.href = match.url;
+                });
+                searchSuggestions.appendChild(item);
+              });
+              searchSuggestions.classList.add('show');
             } else {
-              article.style.display = 'none';
+              searchSuggestions.classList.remove('show');
             }
-          });
+          } else {
+            searchSuggestions.classList.remove('show');
+          }
+        });
+
+        // Cerrar sugerencias al hacer clic fuera
+        document.addEventListener('click', function(e) {
+          if (!searchInput.contains(e.target) && !searchToggle.contains(e.target) && !searchSuggestions.contains(e.target)) {
+            searchSuggestions.classList.remove('show');
+            searchInput.classList.remove('active');
+          }
         });
       });
     </script>

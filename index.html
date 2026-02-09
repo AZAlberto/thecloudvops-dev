@@ -28,7 +28,7 @@ title: TheCloudvops - DevOps, Cloud y Automatización
     <article class="article-card">
       {% if post.image %}
       <div class="article-image">
-        <img src="{{ post.image }}" alt="{{ post.title }}">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
       </div>
       {% endif %}
       <div class="article-content">

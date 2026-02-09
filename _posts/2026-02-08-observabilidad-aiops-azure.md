@@ -8,7 +8,14 @@ image: "/assets/images/aiops-azure.jpg"
 excerpt: "Descubre cómo AIOps en Azure transforma la observabilidad, usando IA para detectar anomalías y predecir incidentes en entornos cloud."
 ---
 
+
 # Observabilidad con IA (AIOps) en Azure: De Logs a Insights Inteligentes
+
+## Introducción para principiantes
+
+¿No sabes qué es observabilidad ni AIOps? Observabilidad es la capacidad de ver y entender qué pasa dentro de tus sistemas y aplicaciones. AIOps es usar inteligencia artificial para analizar esa información y anticipar problemas.
+
+En este artículo, te explico cómo Azure usa IA para ayudarte a detectar y solucionar problemas antes de que afecten a tus usuarios, aunque nunca hayas trabajado con estas herramientas.
 
 ## Introducción
 

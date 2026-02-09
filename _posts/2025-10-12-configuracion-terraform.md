@@ -11,9 +11,11 @@ tags:
   - Cloud
 ---
 
-## Introducción
+## Introducción para principiantes
 
-Para comenzar a desarrollar Infraestructura como Código (IaC) con Terraform, necesitas configurar adecuadamente tu entorno de desarrollo. En esta guía, te explicaré paso a paso todo lo necesario para empezar.
+¿Nunca has usado Terraform ni sabes qué es IaC? No te preocupes. **Terraform** es una herramienta que te permite crear y gestionar recursos en la nube (como servidores, redes o bases de datos) usando archivos de texto. Esto se llama "Infraestructura como Código" (IaC), y hace que todo sea más fácil de repetir, modificar y compartir.
+
+En esta guía, te explico desde cero cómo preparar tu ordenador para usar Terraform, aunque nunca hayas trabajado con la nube ni con programación.
 
 ## Requisitos Básicos
 

@@ -16,9 +16,13 @@ seo:
   description: "Implementación completa de GitOps y CI/CD moderno con Terraform y Azure DevOps. Guía práctica para equipos DevOps en 2026."
 ---
 
-## La Evolución del Pipeline DevOps: Hacia un Futuro GitOps
+## ¿Qué es un pipeline DevOps? (explicación sencilla)
 
-La automatización y el control de versiones del código se han convertido en el estándar para la infraestructura moderna. Este artículo presenta una implementación completa de GitOps con Terraform y Azure DevOps.
+Un pipeline DevOps es como una cadena de montaje automática para el software: toma el código, lo prueba, lo empaqueta y lo despliega en la nube, todo sin intervención manual.
+
+**GitOps** es una forma moderna de gestionar todo esto usando Git (una herramienta para guardar y versionar código) y automatización.
+
+En este artículo, te explico cómo funciona un pipeline DevOps moderno usando Terraform y Azure DevOps, aunque nunca hayas trabajado con estas herramientas.
 
 ## Arquitectura del Pipeline
 

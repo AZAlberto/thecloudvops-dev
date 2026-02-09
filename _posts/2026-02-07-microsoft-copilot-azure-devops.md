@@ -8,7 +8,18 @@ image: "/assets/images/copilot-devops.jpg"
 excerpt: "Explora cómo Microsoft Copilot transforma los flujos de trabajo en Azure DevOps, desde planificación hasta despliegue, con casos reales y mejores prácticas."
 ---
 
+
 # Microsoft Copilot en Azure DevOps: Acelerando el Desarrollo con IA
+
+## Introducción para principiantes
+
+¿No sabes qué es Copilot ni Azure DevOps? Aquí te lo explico fácil:
+
+**Copilot** es una inteligencia artificial de Microsoft que te ayuda a escribir código, sugerir soluciones y automatizar tareas repetitivas.
+
+**Azure DevOps** es una plataforma de Microsoft para gestionar proyectos de software, desde el código hasta el despliegue.
+
+En este artículo, te explico cómo Copilot puede ayudarte a trabajar más rápido y con menos errores, aunque nunca hayas usado estas herramientas.
 
 ## Introducción
 

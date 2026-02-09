@@ -9,17 +9,17 @@ tags:
   - DevOps
 ---
 
-## Introducción
+## Introducción para principiantes
 
-Cuando trabajamos en la nube, uno de los grandes retos es **mantener la organización, seguridad y consistencia** en todos los recursos que desplegamos.  
+¿Nunca has trabajado con la nube? No pasa nada. Imagina que la nube es como una ciudad digital donde puedes construir tus propios edificios (aplicaciones, bases de datos, servidores, etc.). Pero, igual que en una ciudad real, necesitas una base sólida y reglas para que todo funcione bien y sea seguro.
 
-Para resolver esto, Microsoft creó **Azure Landing Zones (ALZ)**, un conjunto de buenas prácticas, estructuras y configuraciones listas para usar que nos ayudan a construir entornos de Azure robustos y seguros desde el primer día.
+**Azure Landing Zones (ALZ)** son como esos cimientos y normas para construir en Azure, la nube de Microsoft. Te ayudan a empezar bien, sin líos ni riesgos.
 
-Por su parte, **Terraform** es una herramienta de *Infrastructure as Code (IaC)* que nos permite definir toda nuestra infraestructura en archivos de texto y desplegarla automáticamente.
+**Terraform** es una herramienta que te permite "dibujar" tu ciudad en la nube usando archivos de texto. Así puedes repetir, modificar y compartir tu infraestructura fácilmente.
 
-Los **Azure Verified Modules** son módulos de Terraform creados y validados por Microsoft que implementan estas buenas prácticas de ALZ, evitando que tengas que escribir toda la configuración desde cero.
+**Azure Verified Modules** son piezas ya preparadas y revisadas por Microsoft para que puedas construir tu base en Azure sin tener que saberlo todo ni escribirlo desde cero.
 
-En esta guía, veremos paso a paso cómo desplegar una Landing Zone básica con estos módulos.
+En esta guía, te explico paso a paso cómo usar estas piezas para crear tu primer entorno en la nube, aunque nunca lo hayas hecho antes.
 ## Requisitos previos
 
 

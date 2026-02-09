@@ -1,3 +1,12 @@
+## Introducción para principiantes
+
+¿No sabes qué es GitHub Actions ni para qué sirve la monitorización? Aquí te lo explico fácil:
+
+**GitHub Actions** es una herramienta que te permite automatizar tareas en tus proyectos de código, como pruebas, despliegues o revisiones, sin tener que hacerlas a mano.
+
+**Monitorización** es el proceso de vigilar tus aplicaciones para saber si funcionan bien o si hay problemas.
+
+En este artículo, te enseño cómo usar GitHub Actions para automatizar y monitorizar tus proyectos, aunque nunca lo hayas hecho antes.
 ---
 title: "Automatización y Monitorización con GitHub Actions: Una Guía Completa"
 date: 2025-11-10

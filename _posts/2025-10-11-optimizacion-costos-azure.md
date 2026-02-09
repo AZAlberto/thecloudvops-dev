@@ -13,9 +13,13 @@ tags:
 
 ![Azure Cost Management Dashboard](/assets/images/posts/azure-cost/azure-cost-dashboard.png)
 
-## Introducción
+## Introducción para principiantes
 
-En el mundo actual de la nube, uno de los mayores desafíos que enfrentan las organizaciones es mantener los costos bajo control. Azure Cost Management es una herramienta poderosa que nos ayuda a monitorear, asignar y optimizar nuestros gastos en la nube. En este artículo, aprenderemos cómo automatizar la gestión de costos utilizando Terraform, permitiéndonos implementar buenas prácticas de FinOps desde el código.
+¿Te preocupa gastar de más en la nube? No eres el único. Cuando usamos servicios en la nube como Azure, es fácil perder el control de los gastos si no llevamos un seguimiento.
+
+**Azure Cost Management** es una herramienta gratuita de Microsoft que te ayuda a ver en qué se va el dinero, poner límites y recibir alertas si te pasas. Así puedes evitar sorpresas en la factura.
+
+En este artículo, te explico cómo automatizar el control de gastos usando **Terraform** (una herramienta para gestionar la nube con archivos de texto), para que puedas aplicar buenas prácticas de ahorro desde el principio, aunque no tengas experiencia previa.
 
 ## ¿Por qué es importante la gestión de costos?
 

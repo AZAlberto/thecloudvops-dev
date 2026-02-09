@@ -8,7 +8,16 @@ image: "/assets/images/seguridad-azure-ia.jpg"
 excerpt: "Analiza las mejores prácticas para asegurar implementaciones de IA en Azure, desde protección de modelos hasta governance de datos."
 ---
 
+
 # Seguridad en Azure Aplicada a IA: Protegiendo Modelos y Datos
+
+## Introducción para principiantes
+
+¿No sabes qué es la seguridad en la nube ni por qué es importante para la inteligencia artificial? Aquí te lo explico fácil:
+
+Cuando usas IA en la nube (como Azure), debes proteger tanto los datos como los modelos para evitar robos, ataques o errores.
+
+En este artículo, te explico los riesgos y cómo proteger tus proyectos de IA en Azure, aunque nunca hayas trabajado con seguridad ni con inteligencia artificial.
 
 ## Introducción
 

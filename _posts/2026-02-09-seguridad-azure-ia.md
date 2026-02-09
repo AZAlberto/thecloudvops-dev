@@ -11,7 +11,7 @@ excerpt: "Analiza las mejores prácticas para asegurar implementaciones de IA en
 
 # Seguridad en Azure Aplicada a IA: Protegiendo Modelos y Datos
 
-## Introducción para principiantes
+## Introducción
 
 ¿No sabes qué es la seguridad en la nube ni por qué es importante para la inteligencia artificial? Aquí te lo explico fácil:
 

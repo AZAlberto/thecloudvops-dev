@@ -9,7 +9,7 @@ tags:
   - DevOps
 ---
 
-## Introducción para principiantes
+## Introducción
 
 ¿Nunca has trabajado con la nube? No pasa nada. Imagina que la nube es como una ciudad digital donde puedes construir tus propios edificios (aplicaciones, bases de datos, servidores, etc.). Pero, igual que en una ciudad real, necesitas una base sólida y reglas para que todo funcione bien y sea seguro.
 
@@ -30,10 +30,12 @@ Antes de empezar, asegúrate de tener:
 3. **Azure CLI instalado** y sesión iniciada:
    ```bash
    az login
+   ```
 
 ## Paso 1: Configurar el proveedor de Azure
 
-Crea un archivo main.tf con el proveedor de Azure configurado:
+Este bloque configura Terraform para que sepa cómo conectarse a Azure. Define la versión de Terraform y del proveedor de Azure que vas a usar, asegurando compatibilidad y estabilidad.
+
 ```bash
 terraform {
   required_version = ">= 1.5.0"
@@ -48,14 +50,13 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
 ```
-💡 Tip: Siempre fija una versión de proveedor para evitar cambios inesperados en el futuro.
 
+💡 Tip: Siempre fija una versión de proveedor para evitar cambios inesperados en el futuro.
 
 ## Paso 2: Usar el módulo verificado de Terraform para ALZ
 
-Añade al archivo main.tf el módulo oficial de Microsoft para ALZ:
+Aquí añades el módulo oficial de Microsoft para crear una Landing Zone. Este módulo configura automáticamente una estructura segura y organizada en Azure, con redes, políticas y recursos básicos.
 
 ```
 module "alz" {
@@ -72,7 +73,7 @@ module "alz" {
 
 ## Paso 3: Comandos básicos
 
-Ejecuta los siguientes comandos en la carpeta donde tienes el .tf:
+Estos son los comandos principales de Terraform que necesitas ejecutar para desplegar tu infraestructura. Primero inicializas, luego planificas y finalmente aplicas los cambios.
 
 ```bash
 terraform init    # Descarga proveedores y módulos
@@ -86,7 +87,7 @@ Nunca ejecutes terraform apply directamente en producción sin revisar primero e
 ## Paso 4: Buenas prácticas recomendadas
 
 1. Usar un backend remoto para el estado
-Almacena el state file en Azure Blob Storage para compartirlo con tu equipo:
+Almacena el state file en Azure Blob Storage para compartirlo con tu equipo. Esto evita que el estado se pierda si tu ordenador falla y permite trabajar en equipo sin conflictos.
 
 ```
 terraform {

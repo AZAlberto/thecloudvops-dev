@@ -13,7 +13,7 @@ tags:
 
 ![Azure Cost Management Dashboard](/assets/images/posts/azure-cost/azure-cost-dashboard.png)
 
-## Introducción para principiantes
+## Introducción
 
 ¿Te preocupa gastar de más en la nube? No eres el único. Cuando usamos servicios en la nube como Azure, es fácil perder el control de los gastos si no llevamos un seguimiento.
 
@@ -30,7 +30,10 @@ La adopción de la nube trae consigo la flexibilidad de pago por uso, pero tambi
 
 ## Implementación con Terraform
 
+
 ### 1. Configuración del Presupuesto
+
+Este bloque de código crea un presupuesto mensual en Azure usando Terraform. Así puedes definir un límite de gasto (por ejemplo, 1000 € al mes) y recibir alertas automáticas si te acercas a ese límite. Es útil para evitar sorpresas en la factura y mantener el control de los costos desde el principio.
 
 ```hcl
 resource "azurerm_consumption_budget_subscription" "dev_budget" {
@@ -59,7 +62,10 @@ resource "azurerm_consumption_budget_subscription" "dev_budget" {
 
 ![Presupuesto en Azure Portal](../assets/images/posts/2025-10-11/budget-config.png)
 
+
 ### 2. Políticas de Costos Automatizadas
+
+Este código define una política personalizada en Azure que obliga a que todos los recursos tengan la etiqueta "CostCenter". Si alguien intenta crear un recurso sin esa etiqueta, Azure lo bloqueará automáticamente. Esto ayuda a organizar los gastos por proyecto o departamento y facilita el seguimiento de los costos.
 
 ```hcl
 resource "azurerm_policy_definition" "cost_center_tag" {
@@ -95,6 +101,9 @@ POLICY_RULE
    - Owner
 
 2. **Configura Alertas Tempranas:**
+   
+   El siguiente bloque crea un grupo de acción en Azure para enviar alertas por correo electrónico cuando se detecten gastos elevados. Así, tu equipo recibirá notificaciones automáticas y podrá reaccionar rápidamente si se supera algún umbral de costos.
+   
    ```hcl
    resource "azurerm_monitor_action_group" "cost_alert" {
      name                = "cost-alert-team"
@@ -115,6 +124,9 @@ POLICY_RULE
 
 ## Ejemplo Práctico: Dashboard de Costos
 
+
+Este bloque crea un dashboard personalizado en el portal de Azure para visualizar y analizar los costos de tu suscripción. Así puedes ver de forma gráfica y centralizada cómo se distribuyen los gastos y tomar mejores decisiones.
+
 ```hcl
 resource "azurerm_portal_dashboard" "cost_dashboard" {
   name                = "cost-management-dashboard"
@@ -123,25 +135,25 @@ resource "azurerm_portal_dashboard" "cost_dashboard" {
 
   dashboard_properties = <<DASHBOARD
 {
-    "lenses": {
+  "lenses": {
+    "0": {
+      "order": 0,
+      "parts": {
         "0": {
-            "order": 0,
-            "parts": {
-                "0": {
-                    "position": {
-                        "x": 0,
-                        "y": 0,
-                        "rowSpan": 2,
-                        "colSpan": 3
-                    },
-                    "metadata": {
-                        "inputs": [],
-                        "type": "Extension/Microsoft_Azure_CostManagement/PartType/CostAnalysisPinPart"
-                    }
-                }
-            }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "rowSpan": 2,
+            "colSpan": 3
+          },
+          "metadata": {
+            "inputs": [],
+            "type": "Extension/Microsoft_Azure_CostManagement/PartType/CostAnalysisPinPart"
+          }
         }
+      }
     }
+  }
 }
 DASHBOARD
 }

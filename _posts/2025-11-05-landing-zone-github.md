@@ -11,7 +11,7 @@ tags:
   - IaC
 ---
 
-## Introducción para principiantes
+## Introducción
 
 ¿No sabes qué es una Landing Zone ni para qué sirve GitHub? Aquí te lo explico fácil:
 

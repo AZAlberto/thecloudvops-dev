@@ -28,6 +28,8 @@ En este artículo, te explico cómo funciona un pipeline DevOps moderno usando T
 
 ### 1. Estructura del Repositorio
 
+Esta estructura organiza tu proyecto de forma clara, separando el código de la aplicación, la infraestructura y los pipelines. Así es más fácil mantener y colaborar en equipo.
+
 ```plaintext
 repository/
 ├── .azure/
@@ -54,6 +56,8 @@ repository/
 ## Implementación del Pipeline CI/CD
 
 ### 1. Azure Pipeline Principal
+
+Este archivo YAML define el pipeline de integración continua (CI) en Azure DevOps. Se activa cuando hay cambios en las ramas principales o en archivos específicos, y valida la infraestructura antes de desplegar.
 
 ```yaml
 # .azure/pipelines/ci.yml
@@ -134,6 +138,8 @@ stages:
 
 ### 2. Despliegue con GitOps
 
+Este pipeline de despliegue continuo (CD) se activa después del CI y aplica los cambios a la infraestructura y aplicaciones usando GitOps con Flux.
+
 ```yaml
 # .azure/pipelines/cd.yml
 trigger: none
@@ -186,6 +192,8 @@ stages:
 ## Configuración de GitOps con Flux
 
 ### 1. Flux Bootstrap
+
+Este archivo configura Flux para que monitoree cambios en el repositorio Git y aplique automáticamente las actualizaciones a Kubernetes.
 
 ```yaml
 # kubernetes/flux/gotk-components.yaml

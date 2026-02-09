@@ -1,4 +1,4 @@
-## Introducción para principiantes
+## Introducción
 
 ¿No sabes qué es GitHub Actions ni para qué sirve la monitorización? Aquí te lo explico fácil:
 

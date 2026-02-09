@@ -11,7 +11,7 @@ tags:
   - Cloud
 ---
 
-## Introducción para principiantes
+## Introducción
 
 ¿No sabes qué es una red en la nube? Imagina que la red es como las calles y carreteras de una ciudad digital. Permiten que los diferentes edificios (aplicaciones, bases de datos, servidores) se comuniquen entre sí y con el exterior.
 

@@ -11,7 +11,7 @@ tags:
   - Terraform
 ---
 
-## Introducción para principiantes
+## Introducción
 
 ¿No sabes qué es AWS ni para qué sirve una Landing Zone? Aquí te lo explico fácil:
 

@@ -11,7 +11,7 @@ excerpt: "Explora cómo Microsoft Copilot transforma los flujos de trabajo en Az
 
 # Microsoft Copilot en Azure DevOps: Acelerando el Desarrollo con IA
 
-## Introducción para principiantes
+## Introducción
 
 ¿No sabes qué es Copilot ni Azure DevOps? Aquí te lo explico fácil:
 
